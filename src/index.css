@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Nature-inspired green palette */
+    --background: 120 15% 98%;
+    --foreground: 140 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 30% 12%;
+
+    /* Primary - Deep forest green */
+    --primary: 142 43% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm earth tone */
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 35 60% 25%;
+
+    --muted: 120 10% 94%;
+    --muted-foreground: 140 10% 45%;
+
+    /* Accent - Vibrant leaf green */
+    --accent: 142 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 142 43% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(142, 43%, 25%) 0%, hsl(142, 60%, 35%) 50%, hsl(90, 40%, 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(120, 15%, 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(142, 60%, 40%) 0%, hsl(90, 50%, 50%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(35, 40%, 30%) 0%, hsl(35, 50%, 45%) 100%);
+    
+    --shadow-soft: 0 4px 20px -4px hsl(140 30% 12% / 0.1);
+    --shadow-card: 0 8px 40px -12px hsl(140 30% 12% / 0.15);
+    --shadow-elevated: 0 20px 60px -20px hsl(140 30% 12% / 0.25);
+    --shadow-glow: 0 0 60px hsl(142 60% 40% / 0.2);
+
+    /* Disease colors */
+    --bacterial: 45 90% 50%;
+    --brownspot: 25 70% 40%;
+    --leafsmut: 0 70% 45%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 140 20% 8%;
+    --foreground: 120 15% 95%;
+
+    --card: 140 20% 12%;
+    --card-foreground: 120 15% 95%;
+
+    --popover: 140 20% 12%;
+    --popover-foreground: 120 15% 95%;
+
+    --primary: 142 60% 50%;
+    --primary-foreground: 140 30% 8%;
+
+    --secondary: 35 30% 18%;
+    --secondary-foreground: 35 40% 85%;
+
+    --muted: 140 15% 18%;
+    --muted-foreground: 120 10% 60%;
+
+    --accent: 142 60% 45%;
+    --accent-foreground: 140 30% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 140 15% 20%;
+    --input: 140 15% 20%;
+    --ring: 142 60% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background-image: var(--gradient-card);
+  }
+
+  .bg-gradient-accent {
+    background-image: var(--gradient-accent);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes scale-in {
+  from { 
+    opacity: 0; 
+    transform: scale(0.9); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+
+/* Leaf pattern background */
+.leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-5 10-15 15-25 15 10 5 20 15 25 25 5-10 15-20 25-25-10 0-20-5-25-15z' fill='%2322c55e' fill-opacity='0.03'/%3E%3C/svg%3E");
+}
